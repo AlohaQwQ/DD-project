@@ -25,15 +25,18 @@ const AuthLoginDialogSuccess = ({ transactionAddress }) => {
                 />
                 <span className="login-tips">凭证铸造成功</span>
                 {transactionAddress && ( // 仅在 transactionAddress 存在时显示
-                    <div className="transaction-address" style={{ marginTop: '10px', color: '#fff' }}>
-                        链上地址: 
+                    <div className="address" style={{ marginTop: '10px', color: '#fff' }}>
+                        查看交易: 
                         <a 
                             href={`${transactionAddress}`} // 替换为适当的区块链浏览器链接
                             style={{ color: '#fff', textDecoration: 'underline' }} // 设置为白色和下划线
                             target="_blank" // 在新标签页中打开链接
                             rel="noopener noreferrer" // 安全性
                         >
-                            {transactionAddress}
+                            {transactionAddress.length > 30 
+                                ? `${transactionAddress.slice(0, 30)}...` // 超过30个字符则截断并添加省略号
+                                : transactionAddress // 否则显示完整地址
+                            }
                         </a>
                     </div>
                 )}

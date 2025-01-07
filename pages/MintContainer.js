@@ -103,9 +103,11 @@ const MintContainer = () => {
     useEffect(() => {
         if (isShowNftOpen) {
             // 当 isShowNftOpen 为 true 时，调用弹框方法
+            console.log("弹框已打开");
             onClickSuccessAuth();
         } else {
             // 当 isShowNftOpen 为 false 时，调用关闭弹框方法
+            console.log("弹框已关闭");
             onCloseSuccessAuth();
         }
     }, [isShowNftOpen]); // 依赖于 isShowNftOpen

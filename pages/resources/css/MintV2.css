@@ -383,3 +383,10 @@
     color: #FFFFFF;
     text-align: center;
 }
+.AuthLoginDialog > .content > .address{
+    padding: 10px 0 0 0;
+    font-family: PingFang SC;
+    font-size: 25px;
+    color: #FFFFFF;
+    text-align: center;
+}
