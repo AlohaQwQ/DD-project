@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useMemo } from "react";
-import { Layout, Spin, Image, Button, Modal, ShowNft, Flex, Progress } from 'antd';
+import { Layout, Spin, Image, Button, Modal, Flex, Progress } from 'antd';
 import Link from 'next/link';
 // =========== 钱包组件 相关引入 ===========
 import { useWallet } from "@solana/wallet-adapter-react";
@@ -8,7 +8,7 @@ import { useWalletModal } from '@solana/wallet-adapter-react-ui';
 // =========== 钱包组件 相关引入 ===========
 // ========== mint按钮 相关引入 ==========
 import { ButtonList } from "./components/mintButton";
-import { publicKey } from "@metaplex-foundation/umi";
+import { publicKey as umiPublicKey} from "@metaplex-foundation/umi";
 import { fetchCandyMachine, safeFetchCandyGuard, AccountVersion } from "@metaplex-foundation/mpl-candy-machine";
 import { useUmi } from "./utils/useUmi";
 import { useSolanaTime } from "./utils/SolanaTimeContext";
@@ -16,6 +16,9 @@ import { guardChecker } from "./utils/checkAllowed";
 // ========== mint按钮 相关引入 ==========
 import InventoryComp from './InventoryComp';
 import AuthLoginDialog from './AuthLoginDialog';
+import AuthLoginDialogSuccess from './AuthLoginDialogSuccess';
+
+// import { ShowNft } from "./components/showNft";
 // =========== mint 相关参数 ======================
 const useCandyMachine = (
     umi,
@@ -39,7 +42,7 @@ const useCandyMachine = (
 
                     let candyMachine;
                     try {
-                        candyMachine = await fetchCandyMachine(umi, publicKey(candyMachineId));
+                        candyMachine = await fetchCandyMachine(umi, umiPublicKey(candyMachineId));
                         // Verify CM Version
                         if (candyMachine.version !== AccountVersion.V2) {
                         console.error("Wrong candy machine account version!");
@@ -78,19 +81,47 @@ const useCandyMachine = (
 const MintContainer = () => {
     // ================== 钱包相关代码 ==================
     const [visible, setVisible] = useState(false);
-    const { connected, disconnect, connect } = useWallet(); // 获取连接状态和方法
+    const { connected, disconnect, connect, publicKey } = useWallet(); // 获取连接状态和方法
     const { setVisible: setModalVisible } = useWalletModal(); // 获取打开钱包选择对话框的方法
     const [walletIcon, setWalletIcon] = useState('/resources/images/wallet2.png'); // 默认图标路径
+    const [walletAddress, setWalletAddress] = useState('连接钱包'); // 新增状态存储钱包地址
+    const [mintingStatus, setMintingStatus] = useState(false); // 管理 mint 状态
+    const [isShowNftOpen, setShowNftOpen] = useState(false);//铸造完成状态
+
+    // 监控 mintingStatus 的变化
+    useEffect(() => {
+        if (mintingStatus) {
+            // 当 mintingStatus 为 true 时，调用弹框方法
+            onClickAuth();
+        } else {
+            // 当 mintingStatus 为 false 时，调用关闭弹框方法
+            onCloseAuth();
+        }
+    }, [mintingStatus]); // 依赖于 mintingStatus
+
+    // 监控 isShowNftOpen 的变化
+    useEffect(() => {
+        if (isShowNftOpen) {
+            // 当 isShowNftOpen 为 true 时，调用弹框方法
+            onClickSuccessAuth();
+        } else {
+            // 当 isShowNftOpen 为 false 时，调用关闭弹框方法
+            onCloseSuccessAuth();
+        }
+    }, [isShowNftOpen]); // 依赖于 isShowNftOpen
+
     useEffect(
         () => {
             // 根据连接状态更新钱包图标
             if (connected) {
                 setWalletIcon('/resources/images/wallet3.png'); // 已连接状态的图标路径
+                setWalletAddress(`${publicKey.toString().slice(0, 4)}...${publicKey.toString().slice(-4)}`);// 更新钱包地址
             } else {
                 setWalletIcon('/resources/images/wallet2.png'); // 未连接状态的图标路径
+                setWalletAddress('连接钱包'); // 清空钱包地址
             }
         }, 
-        [connected]
+        [connected, publicKey]
     ); // 监听 connected 状态变化
 
     const onWalletClick = () => {
@@ -105,16 +136,15 @@ const MintContainer = () => {
     // ================== MINT按钮 相关代码 ==================
     const umi = useUmi();
     const solanaTime = useSolanaTime();
-    const [mintsCreated, setMintsCreated] = useState();
+    const [mintsCreated, setMintsCreated] = useState(["https://x.com/DD__BlockChain"]);
     const [isAllowed, setIsAllowed] = useState(false);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [ownedTokens, setOwnedTokens] = useState();
     const [guards, setGuards] = useState([
         { label: "startDefault", allowed: false, maxAmount: 0 },
     ]);
     const [firstRun, setFirstRun] = useState(true);
     const [checkEligibility, setCheckEligibility] = useState(true);
-    const [isShowNftOpen, setShowNftOpen] = useState(false);
     const [isInitializerOpen, setInitializerOpen] = useState(false);
 
     if (!process.env.NEXT_PUBLIC_CANDY_MACHINE_ID) {
@@ -123,10 +153,10 @@ const MintContainer = () => {
 
     const candyMachineId = useMemo(() => {
         if (process.env.NEXT_PUBLIC_CANDY_MACHINE_ID) {
-            return publicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID);
+            return umiPublicKey(process.env.NEXT_PUBLIC_CANDY_MACHINE_ID);
         } else {
         console.error(`NO CANDY MACHINE IN .env FILE DEFINED!`);
-            return publicKey("11111111111111111111111111111111");
+            return umiPublicKey("11111111111111111111111111111111");
         }
     }, []);
 
@@ -164,15 +194,28 @@ const MintContainer = () => {
     );
     // ================== MINT按钮 相关代码 ==================
 
-    // 加入社区并验证
+    // mint中弹框
     const onClickAuth = (e) => {
-        console.log('click ', e);
-        let AuthLoginDialogDom = document.getElementById('AuthLoginDialog')
-        console.log("✈ ~ AuthLoginDialogDom:", AuthLoginDialogDom)
-        AuthLoginDialogDom.style.display = 'flex'
+        let AuthLoginDialogDom = document.getElementById('AuthLoginDialog');
+        AuthLoginDialogDom.style.display = 'flex';// 显示弹框
     };
+    const onCloseAuth = (e) => {
+        let AuthLoginDialogDom = document.getElementById('AuthLoginDialog');
+        AuthLoginDialogDom.style.display = 'none'; // 隐藏弹框
+    };
+
+    // mint成功弹框
+    const onClickSuccessAuth = (e) => {
+        let AuthLoginSuccessDialogDom = document.getElementById('AuthLoginDialogSuccess');
+        AuthLoginSuccessDialogDom.style.display = 'flex';// 显示弹框
+    };
+    const onCloseSuccessAuth = (e) => {
+        let AuthLoginSuccessDialogDom = document.getElementById('AuthLoginDialogSuccess');
+        AuthLoginSuccessDialogDom.style.display = 'none'; // 隐藏弹框
+    };
+
 	return (
-		<div className="MintContainer" style={{ 'width': '100%', 'background-color': '#1e1e1e', 'margin': 0, 'padding': 0 }}>
+		<div className="MintContainer" style={{ width: '100%', backgroundColor: '#1e1e1e', margin: 0, padding: 0 }}>
             <div className="wallet-connect" onClick={onWalletClick}>
                 <Image
                   src={walletIcon} // 替换为你的钱包图标路径
@@ -180,7 +223,7 @@ const MintContainer = () => {
                   preview={false}
                   style={{ cursor: 'pointer', width: '50px', height: '50px' }}
                 />
-                <div className="aWallet-label">CONNECT</div>
+                <div className="aWallet-label">{walletAddress}</div>
             </div>
             
             <div className="main">
@@ -213,18 +256,19 @@ const MintContainer = () => {
                 <div className="MINT-wrap">
                     <div className="MINT-btn">
                         {/* <div className="MINT-NF">MINT</div> */}
-                        <ButtonList
-                            guardList={guards}
-                            candyMachine={candyMachine}
-                            candyGuard={candyGuard}
-                            umi={umi}
-                            ownedTokens={ownedTokens}
-                            setGuardList={setGuards}
-                            mintsCreated={mintsCreated}
-                            setMintsCreated={setMintsCreated}
-                            onOpen={() => setShowNftOpen(true)}
-                            setCheckEligibility={setCheckEligibility}
-                        />
+                            <ButtonList
+                                guardList={guards}
+                                candyMachine={candyMachine}
+                                candyGuard={candyGuard}
+                                umi={umi}
+                                ownedTokens={ownedTokens}
+                                setGuardList={setGuards}
+                                mintsCreated={mintsCreated}
+                                setMintsCreated={setMintsCreated}
+                                onOpen={() => setShowNftOpen(true)}
+                                setCheckEligibility={setCheckEligibility}
+                                setMintingStatus={setMintingStatus} // 传递更新函数
+                            />
                     </div>
                     <div className="MINT-version">0.1 SOL / NFT</div>
                     <div className="arrow-bottom"></div>
@@ -237,12 +281,12 @@ const MintContainer = () => {
                     <div className="auth-wrap">
                         <div className="title">获得凭证后…</div>
                         <div className="content">
-                            <div className="item" style={{'font-size': '50px', 'margin': '0 0 30px 0'}}>可以进入DD社区内部群</div>
-                            <div className="item" style={{'font-size': '30px'}}>-多频道支持：内设阿尔法/NFT/符文/铭文/土狗/合约/现货/撸毛等各种频道，满足您的多样化需求。</div>
-                            <div className="item" style={{'font-size': '30px'}}>-全方位覆盖：无论是最新的市场动态，还是独家投资策略，涵盖</div>
-                            <div className="item" style={{'font-size': '50px', 'margin': '0 0 30px 0'}}>获得社区合作的空投、白名单</div>
-                            <div className="item" style={{'font-size': '30px'}}>-特别空投：社区合作的空投，如早期的杰瑞、汉堡等，都会特别安排给NFT持有者</div>
-                            <div className="item" style={{'font-size': '30px'}}>-优先白名单：社区合作的白名单优先安排，让您在热门项目中占得先机。</div>
+                            <div className="item" style={{fontSize: '50px', 'margin': '0 0 30px 0'}}>可以进入DD社区内部群</div>
+                            <div className="item" style={{fontSize: '30px'}}>-多频道支持：内设阿尔法/NFT/符文/铭文/土狗/合约/现货/撸毛等各种频道，满足您的多样化需求。</div>
+                            <div className="item" style={{fontSize: '30px'}}>-全方位覆盖：无论是最新的市场动态，还是独家投资策略，涵盖</div>
+                            <div className="item" style={{fontSize: '50px', 'margin': '0 0 30px 0'}}>获得社区合作的空投、白名单</div>
+                            <div className="item" style={{fontSize: '30px'}}>-特别空投：社区合作的空投，如早期的杰瑞、汉堡等，都会特别安排给NFT持有者</div>
+                            <div className="item" style={{fontSize: '30px'}}>-优先白名单：社区合作的白名单优先安排，让您在热门项目中占得先机。</div>
                         </div>
                         <Link href="https://t.me/ddscyyd" className="join-community" target="_blank">加入社区并验证</Link>
                     </div>
@@ -278,14 +322,9 @@ const MintContainer = () => {
                 </div>
             </div>
             <AuthLoginDialog />
-            <Modal
-                title="Your minted NFT:"
-                visible={isShowNftOpen}
-                onCancel={() => setShowNftOpen(false)}
-                footer={null}
-            >
-                <ShowNft nfts={mintsCreated} />
-            </Modal>
+            <AuthLoginDialogSuccess 
+                transactionAddress={mintsCreated.length > 0 ? mintsCreated[mintsCreated.length - 1]: ""} 
+            />
 		</div>
 	);
 };

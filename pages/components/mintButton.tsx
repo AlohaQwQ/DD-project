@@ -223,6 +223,7 @@ type Props = {
   >;
   onOpen: () => void;
   setCheckEligibility: Dispatch<SetStateAction<boolean>>;
+  setMintingStatus: Dispatch<SetStateAction<boolean>>; // Add this line
 };
 
 export function ButtonList({
@@ -236,6 +237,7 @@ export function ButtonList({
   setMintsCreated,
   onOpen,
   setCheckEligibility,
+  setMintingStatus, // 确保这里接收
 }: Props): JSX.Element {
   const { connected, disconnect, connect } = useWallet();
   const { setVisible: setModalVisible } = useWalletModal();
@@ -249,6 +251,7 @@ export function ButtonList({
   }
 
   const mintButtonClick = async (
+    setMintingStatus: Dispatch<SetStateAction<boolean>>, // 添加新的参数
     umi: Umi,
     guard: GuardReturn,
     candyMachine: CandyMachine,
@@ -303,6 +306,7 @@ export function ButtonList({
       }
       const newGuardList = [...guardList];
       newGuardList[guardIndex].minting = true;
+      setMintingStatus(true);
       setGuardList(newGuardList);
 
       let routeBuild = await routeBuilder(umi, guardToUse, candyMachine);
@@ -508,6 +512,8 @@ export function ButtonList({
       }
       const newGuardList = [...guardList];
       newGuardList[guardIndex].minting = false;
+      // 设置 minting 状态为 false
+      setMintingStatus(false);
       setGuardList(newGuardList);
       setCheckEligibility(true);
       updateLoadingText(undefined, guardList, guardToUse.label, setGuardList);
@@ -637,6 +643,7 @@ export function ButtonList({
           <Button
             onClick={() =>
               mintButtonClick(
+                setMintingStatus, // 传递更新函数
                 umi,
                 buttonGuard,
                 candyMachine,

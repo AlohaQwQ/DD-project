@@ -6,17 +6,21 @@ import { useWalletModal } from '@solana/wallet-adapter-react-ui';
 import CarouselComp from './CarouselComp';
 const HomeContainer = () => {
     const [visible, setVisible] = useState(false);
-    const { connected, disconnect, connect } = useWallet(); // 获取连接状态和方法
+    const { connected, disconnect, connect, publicKey  } = useWallet(); // 获取连接状态和方法
     const { setVisible: setModalVisible } = useWalletModal(); // 获取打开钱包选择对话框的方法
     const [walletIcon, setWalletIcon] = useState('/resources/images/wallet2.png'); // 默认图标路径
+    const [walletAddress, setWalletAddress] = useState('连接钱包'); // 新增状态存储钱包地址
+
     useEffect(() => {
         // 根据连接状态更新钱包图标
         if (connected) {
             setWalletIcon('/resources/images/wallet3.png'); // 已连接状态的图标路径
+            setWalletAddress(`${publicKey.toString().slice(0, 4)}...${publicKey.toString().slice(-4)}`);// 更新钱包地址
         } else {
             setWalletIcon('/resources/images/wallet2.png'); // 未连接状态的图标路径
+            setWalletAddress('连接钱包'); // 清空钱包地址
         }
-    }, [connected]); // 监听 connected 状态变化
+    }, [connected, publicKey]); // 监听 connected 状态变化
 
     const onWalletClick = () => {
         if (connected) {
@@ -26,7 +30,7 @@ const HomeContainer = () => {
         }
     };
 	return (
-		<div className="HomeContainer" style={{ 'width': '100%', 'background-color': '#1e1e1e', 'margin': 0, 'padding': 0 }}>
+		<div className="HomeContainer" style={{ 'width': '100%', backgroundColor: '#1e1e1e', 'margin': 0, 'padding': 0 }}>
             <div className="wallet-connect" onClick={onWalletClick}>
                 <Image
                     src={walletIcon} // 替换为你的钱包图标路径
@@ -34,7 +38,7 @@ const HomeContainer = () => {
                     preview={false}
                     style={{ cursor: 'pointer', width: '50px', height: '50px' }}
                 />
-                <div className="aWallet-label">CONNECT</div>
+                <div className="aWallet-label">{walletAddress}</div>
             </div>
             <div className="logo-wrap">
                 <div className="logo"></div>

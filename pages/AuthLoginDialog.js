@@ -6,7 +6,9 @@ const AuthLoginDialog = () => {
         AuthLoginDialogDom.style.display = 'none'
     }
 	return (
-		<div className="AuthLoginDialog" id="AuthLoginDialog" style={{ 'background-color': 'rgba(0, 0, 0, 0.70)', 'margin': 0, 'padding': 0, 'overflow': 'hidden auto' }} onClick={onClickClose}>
+		<div className="AuthLoginDialog" id="AuthLoginDialog" 
+        style={{ backgroundColor: 'rgba(0, 0, 0, 0.70)', margin: 0, padding: 0, overflow: 'hidden auto' }}
+        onClick={onClickClose}>
             <div className="content">
                 <Image 
                     src='/resources/images/homev2/Group 11.png' 
