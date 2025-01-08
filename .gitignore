@@ -1,14 +1,12 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-node_modules
-dist
-next
-.next
-.next/cache
-.next/static
-*.md
-*.json
-
-cache/
-server/
-static/
+# 忽略本地开发配置文件
+node_modules/
+*.log
+.vscode/
+.next/
+.lh
+dist/
+docs/
+.env
+.env.local
+.package-lock.json

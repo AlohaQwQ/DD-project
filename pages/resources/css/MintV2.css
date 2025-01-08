@@ -3,11 +3,11 @@
 }
 .MintContainer > .wallet-connect{
     position: absolute;
-    right: 30px;
-    top: 20px;
+    right: 1%;
+    top: 0.5%;
     z-index: 999;
-    width: 306px;
-    height: 76px;
+    width: 8%;
+    height: 2%;
     background-color: #150d21;
     border-radius: 16px;
     border: 2px solid;
@@ -21,15 +21,15 @@
 .MintContainer > .wallet-connect > .ant-image{
 }
 .MintContainer > .wallet-connect > .aWallet-label{
-    padding: 0 0 0 16px;
+    padding: 0 10% 0 10%;
     font-family: PingFang SC;
     font-weight: 700;
-    font-size: 30px;
+    font-size: 1.4vh;
     color: #FFFFFF;
 }
 .MintContainer > .main{
     width: 100%;
-    padding: 150px 0 200px 0;
+    padding: 4% 5% 4% 5%;
     background-image: url('/resources/images/homev2/bgimg-03.png');
     background-size: 100% 100%;
     background-position: left top;
@@ -39,7 +39,7 @@
     width: 100%;
     font-family: PingFang SC;
     font-weight: 600;
-    font-size: 40px;
+    font-size: 2.5vh;
     text-align: center;
 }
 .main > .inventory-wrap{
@@ -75,13 +75,6 @@
     border-color: #ff0000;
     border-radius: 12px;
     overflow: hidden;
-}
-.ant-flex.ant-flex-align-stretch.ant-flex-vertical > .ant-progress > .ant-progress-outer > .ant-progress-inner{
-}
-.ant-flex.ant-flex-align-stretch.ant-flex-vertical > .ant-progress > .ant-progress-outer > .ant-progress-inner > .ant-progress-bg.ant-progress-bg-outer{
-}
-.ant-flex.ant-flex-align-stretch.ant-flex-vertical > .ant-progress > .ant-progress-outer > .ant-progress-inner > .ant-progress-bg.ant-progress-bg-outer::after{
-    
 }
 .main > .MINT-wrap{
     position: relative;
@@ -323,7 +316,7 @@
 }
 .MintContainer > .footer{
     width: 100%;
-    padding: 30px 0;
+    padding: 10%;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -223,7 +223,7 @@ const MintContainer = () => {
                   src={walletIcon} // 替换为你的钱包图标路径
                   alt="Wallet"
                   preview={false}
-                  style={{ cursor: 'pointer', width: '50px', height: '50px' }}
+                  style={{ cursor: 'pointer', width: '60%', height: '60%' }}
                 />
                 <div className="aWallet-label">{walletAddress}</div>
             </div>
@@ -233,7 +233,7 @@ const MintContainer = () => {
                     <Image 
                         src='/resources/images/homev2/Group 38.png' 
                         preview={false} 
-                        style={{ cursor: 'default', width: '100%', height: 'auto' }} 
+                        style={{ cursor: 'default', width: '100%', height: 'auto', marginLeft: '20px' }} 
                     />
                 </div>
                 <div className="header">DD社区凭证 + 独特PFP</div>
@@ -309,20 +309,21 @@ const MintContainer = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="footer">
-                <div className="footer-logo"></div>
-                <div className="footer-info">
-                    <a href="https://x.com/DD__BlockChain" target="_blank" rel="noopener noreferrer">
-                        <Image 
-                            src='/resources/images/homev2/Group 36.png' 
-                            preview={false} 
-                            style={{ cursor: 'pointer', width: '24px', height: '24px' }} 
-                        />
-                    </a>
-                    <Link href="https://x.com/DD__BlockChain" className="email" target="_blank">@DD__BlockChain</Link>
+                <div className="footer">
+                    <div className="footer-logo"></div>
+                    <div className="footer-info">
+                        <a href="https://x.com/DD__BlockChain" target="_blank" rel="noopener noreferrer">
+                            <Image 
+                                src='/resources/images/homev2/Group 36.png' 
+                                preview={false} 
+                                style={{ cursor: 'pointer', width: '24px', height: '24px' }} 
+                            />
+                        </a>
+                        <Link href="https://x.com/DD__BlockChain" className="email" target="_blank">@DD__BlockChain</Link>
+                    </div>
                 </div>
             </div>
+            
             <AuthLoginDialog />
             <AuthLoginDialogSuccess 
                 transactionAddress={mintsCreated.length > 0 ? mintsCreated[mintsCreated.length - 1]: ""} 
