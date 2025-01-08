@@ -138,7 +138,7 @@ const MintContainer = () => {
     // ================== MINT按钮 相关代码 ==================
     const umi = useUmi();
     const solanaTime = useSolanaTime();
-    const [mintsCreated, setMintsCreated] = useState(["https://x.com/DD__BlockChain"]);
+    const [mintsCreated, setMintsCreated] = useState([""]);
     const [isAllowed, setIsAllowed] = useState(false);
     const [loading, setLoading] = useState(false);
     const [ownedTokens, setOwnedTokens] = useState();

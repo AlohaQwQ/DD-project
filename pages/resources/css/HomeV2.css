@@ -7,13 +7,13 @@
 .HomeContainer > .wallet-connect{
     position: absolute;
     right: 20px;
-    top: 10px;
+    top: 8px;
     z-index: 999;
-    width: 102px;
-    height: 25px;
+    width: 90px;
+    height: 20px;
     background-color: #150d21;
     border-radius: 8px;
-    border: 2px solid;
+    border: 1px solid;
     border-color: #ff0000;
     overflow: hidden;
     display: flex;
@@ -28,10 +28,10 @@
     cursor: pointer;
 }
 .HomeContainer > .wallet-connect > .aWallet-label{
-    padding: 0 0 0 4px;
+    padding: 0 0 0 8px;
     font-family: PingFang SC;
-    font-weight: 700;
-    font-size: 10px;
+    font-weight: 600;
+    font-size: 7px;
     color: #FFFFFF;
 }
 .HomeContainer > .logo-wrap{

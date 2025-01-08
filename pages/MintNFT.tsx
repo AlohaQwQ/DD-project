@@ -138,7 +138,8 @@ export default function Home() {
   const [canMint, setCanMint] = useState(true);
   const [stopMint, setStopMint] = useState(true);
   const { connected, connect } = useWallet(); // 获取连接状态和连接函数
-
+  const [mintingStatus, setMintingStatus] = useState(false); // 管理 mint 状态
+  
   if (!process.env.NEXT_PUBLIC_CANDY_MACHINE_ID) {
     console.error("No candy machine in .env!Add your candy machine address to the .env file!")
     // if (!toast.isActive('no-cm')) {
@@ -329,6 +330,7 @@ export default function Home() {
                     setMintsCreated={setMintsCreated}
                     onOpen={onShowNftOpen}
                     setCheckEligibility={setCheckEligibility}
+                    setMintingStatus={setMintingStatus} // 传递更新函数
                   />
                 </div>
                 {/* <Button
@@ -467,6 +469,7 @@ export default function Home() {
                     setMintsCreated={setMintsCreated}
                     onOpen={onShowNftOpen}
                     setCheckEligibility={setCheckEligibility}
+                    setMintingStatus={setMintingStatus} // 传递更新函数
                   />
                 </div>
                 {/* <Button
