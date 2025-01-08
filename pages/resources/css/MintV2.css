@@ -35,9 +35,9 @@
 }
 .MintContainer > .main{
     width: 100%;
-    padding: 35px 0 0 0;
+    padding: 30px 0 0 0;
     min-height: 100%;
-    background-image: url('/resources/images/homev2/bgimg-02.png');
+    background-image: url('/resources/images/homev2/bgimg-03.png');
     background-size: 100% auto;
     background-position: left top;
     background-repeat: repeat;
@@ -52,19 +52,19 @@
 }
 .header-logo > .ant-image > .ant-image-img{
     width: auto;
-    height: 22px;
+    height: 20px;
 }
 .main > .header{
     width: 100%;
     font-family: PingFang SC;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 10px;
     text-align: center;
     line-height: 30px;
 }
 .main > .inventory-wrap{
     width: 100%;
-    padding: 10px 0 0 0;
+    padding: 6px 0 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -76,22 +76,20 @@
     align-items: center;
 }
 .inventory-wrap > .inventory-logo > .ant-image{
-    width: auto;
-    height: 145px;
 }
 .inventory-wrap > .inventory-logo > .ant-image > .ant-image-img{
     width: auto;
-    height: 100%;
+    height: 110px;
 }
 .inventory-wrap > .inventory-num{
     width: 100%;
     margin: 0 0 8px 0;
     font-family: PingFang SC;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 10px;
     color: #ffffff;
     text-align: center;
-    line-height: 20px;
+    line-height: 16px;
 }
 .inventory-wrap > .ant-flex.ant-flex-align-stretch.ant-flex-vertical{
     width: 70%;
@@ -129,9 +127,9 @@
 }
 .MINT-wrap > .MINT-btn{
     width: 100%;
-    height: 36px;
+    height: 30px;
     background-image: url('/resources/images/homev2/Group 13.png');
-    background-size: auto 36px;
+    background-size: auto 30px;
     background-position: center top;
     background-repeat: no-repeat;
     display: flex;
@@ -143,7 +141,7 @@
     position: relative;
     width: 100%;
     padding: 0;
-    height: 36px;
+    height: 30px;
     /* border-radius: 20px; */
     display: flex;
     justify-content: center;
@@ -170,19 +168,19 @@
     padding: 0;
     margin: 0;
     height: 100%;
-    border-radius: 18px;
+    border-radius: 15px;
     overflow: hidden;
     display: flex;
 }
 .MINT-wrap > .MINT-btn > div > div > div > button.chakra-button{
     width: 100%;
-    padding: 0;
+    padding: 2px 0 0 0;
     margin: 0;
     height: 100%;
     background-color: transparent !important;
     font-family: PingFang SC;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 10px;
     color: #FFFFFF !important;
 }
 /* .MINT-wrap > .MINT-btn > .MINT-NF{
@@ -199,14 +197,14 @@
 } */
 .MINT-wrap > .MINT-version{
     font-family: PingFang SC;
-    font-size: 12px;
+    font-size: 10px;
     color: #ffffff;
     text-align: center;
-    line-height: 20px;
+    line-height: 18px;
 }
 .MINT-wrap > .arrow-bottom{
     width: 50px;
-    margin: 50px 0 0 0;
+    margin: 30px 0 0 0;
     height: 47px;
     cursor: pointer;
     background-image: url('/resources/images/homev2/Group 16.png');
@@ -216,7 +214,7 @@
 }
 .MINT-wrap > .bgimg-left-01{
     position: absolute;
-    left: 160px;
+    left: 150px;
     bottom: 0;
     transform: scaleX(-1);
     transform-origin: center center;
@@ -236,8 +234,8 @@
     transform: scaleX(-1);
     transform-origin: center center;
     z-index: 10;
-    width: 115px;
-    height: 135px;
+    width: 105px;
+    height: 120px;
     background-image: url('/resources/images/homev2/Group 41.png');
     /* background-size: 1834px 2048px; */
     background-size: 100% 100%;
@@ -247,7 +245,7 @@
 }
 .MINT-wrap > .bgimg-right-01{
     position: absolute;
-    right: 155px;
+    right: 138px;
     bottom: 0;
     z-index: 10;
     width: 75px;
@@ -264,8 +262,8 @@
     right: 50px;
     bottom: 0;
     z-index: 10;
-    width: 118px;
-    height: 135px;
+    width: 98px;
+    height: 120px;
     background-image: url('/resources/images/homev2/Group 43.png');
     /* background-size: 1772px 2048px; */
     background-size: 100% 100%;
