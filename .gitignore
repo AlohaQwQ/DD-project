@@ -1,0 +1,10 @@
+
+# 忽略本地开发配置文件
+node_modules/
+*.log
+.vscode/
+.next/
+dist/
+docs/
+.env
+.env.local

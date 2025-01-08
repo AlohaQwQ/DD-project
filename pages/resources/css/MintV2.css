@@ -1,0 +1,479 @@
+.MintContainer{
+    position: relative;
+    height: 100%;
+    overflow: hidden auto;
+}
+.MintContainer > .wallet-connect{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    z-index: 999;
+    width: 102px;
+    height: 25px;
+    background-color: #150d21;
+    border-radius: 8px;
+    border: 2px solid;
+    border-color: #ff0000;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.MintContainer > .wallet-connect > .ant-image{
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    cursor: pointer;
+}
+.MintContainer > .wallet-connect > .aWallet-label{
+    padding: 0 0 0 4px;
+    font-family: PingFang SC;
+    font-weight: 700;
+    font-size: 10px;
+    color: #FFFFFF;
+}
+.MintContainer > .main{
+    width: 100%;
+    padding: 35px 0 0 0;
+    min-height: 100%;
+    background-image: url('/resources/images/homev2/bgimg-02.png');
+    background-size: 100% auto;
+    background-position: left top;
+    background-repeat: repeat;
+}
+.main > .header-logo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-logo > .ant-image{
+    width: auto;
+    height: 22px;
+}
+.header-logo > .ant-image > .ant-image-img{
+    width: auto;
+    height: 100%;
+}
+.main > .header{
+    width: 100%;
+    font-family: PingFang SC;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    line-height: 20px;
+}
+.main > .inventory-wrap{
+    width: 100%;
+    padding: 10px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.inventory-wrap > .inventory-logo{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.inventory-wrap > .inventory-logo > .ant-image{
+    width: auto;
+    height: 145px;
+}
+.inventory-wrap > .inventory-logo > .ant-image > .ant-image-img{
+    width: auto;
+    height: 100%;
+}
+.inventory-wrap > .inventory-num{
+    width: 100%;
+    margin: 0 0 8px 0;
+    font-family: PingFang SC;
+    font-weight: bold;
+    font-size: 12px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 20px;
+}
+.inventory-wrap > .ant-flex.ant-flex-align-stretch.ant-flex-vertical{
+    width: 70%;
+    height: 20px;
+}
+.inventory-wrap > .ant-flex.ant-flex-align-stretch.ant-flex-vertical > .ant-progress{
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+.ant-flex.ant-flex-align-stretch.ant-flex-vertical > .ant-progress > .ant-progress-outer{
+    height: 10px;
+    border: 1px solid;
+    border-color: #ff0000;
+    background-color: #1e1e1e;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.ant-flex.ant-flex-align-stretch.ant-flex-vertical > .ant-progress > .ant-progress-outer > .ant-progress-inner{
+    height: 8px;
+}
+.ant-flex.ant-flex-align-stretch.ant-flex-vertical > .ant-progress > .ant-progress-outer > .ant-progress-inner > .ant-progress-bg.ant-progress-bg-outer{
+    height: 100% !important;
+}
+.ant-flex.ant-flex-align-stretch.ant-flex-vertical > .ant-progress > .ant-progress-outer > .ant-progress-inner > .ant-progress-bg.ant-progress-bg-outer::after{
+    
+}
+.main > .MINT-wrap{
+    position: relative;
+    width: 100%;
+    padding: 0 0 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.MINT-wrap > .MINT-btn{
+    width: 100%;
+    height: 36px;
+    background-image: url('/resources/images/homev2/Group 13.png');
+    background-size: auto 36px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.MINT-wrap > .MINT-btn > div{
+    position: relative;
+    width: 100%;
+    padding: 0;
+    height: 36px;
+    /* border-radius: 20px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.MINT-wrap > .MINT-btn > div > div{
+    position: absolute;
+    /* width: 100%; */
+    width: 120px;
+    padding: 0 ;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.MINT-wrap > .MINT-btn > div > div{
+    /* width: 100%; */
+    /* padding: 0;
+    margin: 0;
+    height: 100%; */
+}
+.MINT-wrap > .MINT-btn > div > div > div{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+}
+.MINT-wrap > .MINT-btn > div > div > div > button.chakra-button{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    background-color: transparent !important;
+    font-family: PingFang SC;
+    font-weight: 500;
+    font-size: 12px;
+    color: #FFFFFF !important;
+}
+/* .MINT-wrap > .MINT-btn > .MINT-NF{
+    width: 388px;
+    margin: 12px 0 0 0;
+    height: 88px;
+    font-family: PingFang SC;
+    font-weight: 500;
+    font-size: 40px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.MINT-wrap > .MINT-version{
+    font-family: PingFang SC;
+    font-size: 12px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 20px;
+}
+.MINT-wrap > .arrow-bottom{
+    width: 50px;
+    margin: 50px 0 0 0;
+    height: 47px;
+    cursor: pointer;
+    background-image: url('/resources/images/homev2/Group 16.png');
+    background-size: 100% 100%;
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+.MINT-wrap > .bgimg-left-01{
+    position: absolute;
+    left: 160px;
+    bottom: 0;
+    transform: scaleX(-1);
+    transform-origin: center center;
+    z-index: 10;
+    width: 90px;
+    height: 90px;
+    background-image: url('/resources/images/homev2/Group 40.png');
+    background-size: 100% 100%;
+    background-position: left top;
+    background-repeat: no-repeat;
+    
+}
+.MINT-wrap > .bgimg-left-02{
+    position: absolute;
+    left: 50px;
+    bottom: 0;
+    transform: scaleX(-1);
+    transform-origin: center center;
+    z-index: 10;
+    width: 115px;
+    height: 135px;
+    background-image: url('/resources/images/homev2/Group 41.png');
+    /* background-size: 1834px 2048px; */
+    background-size: 100% 100%;
+    background-position: left top;
+    background-repeat: no-repeat;
+    
+}
+.MINT-wrap > .bgimg-right-01{
+    position: absolute;
+    right: 155px;
+    bottom: 0;
+    z-index: 10;
+    width: 75px;
+    height: 90px;
+    background-image: url('/resources/images/homev2/Group 42.png');
+    /* background-size: 1612px 1954px; */
+    background-size: 100% 100%;
+    background-position: left top;
+    background-repeat: no-repeat;
+    
+}
+.MINT-wrap > .bgimg-right-02{
+    position: absolute;
+    right: 50px;
+    bottom: 0;
+    z-index: 10;
+    width: 118px;
+    height: 135px;
+    background-image: url('/resources/images/homev2/Group 43.png');
+    /* background-size: 1772px 2048px; */
+    background-size: 100% 100%;
+    background-position: left top;
+    background-repeat: no-repeat;
+    
+}
+.main > .auth{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.main > .auth > .auth-wrap{
+    position: relative;
+    width: 100%;
+    padding: 20px 150px 50px 150px;
+    /* height: 960px; */
+    background-image: url('/resources/images/homev2/Group 45.png');
+    background-size: 100% calc(100% + 10px);
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.auth-wrap > .title{
+    width: 100%;
+    font-family: PingFang SC;
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 40px;
+}
+.auth-wrap > .content{
+    width: 100%;
+}
+.auth-wrap > .content > .item{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    font-family: PingFang SC;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: left;
+}
+.auth-wrap > .content > .item.small{
+    height: 30px;
+    font-size: 8px;
+    align-items: center;
+}
+.auth-wrap > .join-community{
+    position: absolute;
+    right: 100px;
+    bottom: 60px;
+    z-index: 10;
+    width: 110px;
+    height: 28px;
+    background-color: #1e1e1e;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 2px solid;
+    border-color: #ff0000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: PingFang SC;
+    font-size: 10px;
+    color: #ffffff;
+    box-shadow: 2px 1px 2px -1px #ff0000;
+}
+.main > .search{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.main > .search > .search-wrap{
+    position: relative;
+    width: 100%;
+    padding: 20px 0 50px 0;
+    /* height: 880px; */
+    background-image: url('/resources/images/homev2/Group 45.png');
+    background-size: 100% 100%;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+.search-wrap > .title{
+    width: 100%;
+    font-family: PingFang SC;
+    font-weight: bold;
+    font-size: 30px;
+    color: #ff0000;
+    text-align: center;
+    line-height: 60px;
+}
+.search-wrap > .content{
+    width: 100%;
+    padding: 0 0 0 0;
+}
+.search-wrap > .content > .item{
+    width: 100%;
+    margin: 0 0 10px 0;
+    font-family: PingFang SC;
+    font-size: 8px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 15px;
+}
+.main > .footer{
+    width: 100%;
+    padding: 0 0 30px 0;
+}
+.footer > .footer-logo{
+    width: 100%;
+    height: 100px;
+    background-image: url('/resources/images/homev2/Group 10.png');
+    background-size: auto 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.footer > .footer-info{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer > .footer-info > a{
+    display: flex;
+    align-items: center;
+}
+.footer > .footer-info > a > .ant-image{
+    width: 10px;
+    height: 10px;
+}
+.footer > .footer-info > a > .ant-image > .ant-image-img{
+    width: auto;
+    height: 10px;
+}
+.footer > .footer-info > .email{
+    padding-left: 6px;
+    font-family: PingFang SC;
+    font-size: 8px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 10px;
+    text-decoration: underline;
+}
+
+.MintContainer > .AuthLoginDialog{
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.AuthLoginDialog > .content{
+    position: relative;
+    width: 60%;
+    padding: 20px 0;
+    height: auto;
+    background-color: #101010;
+    border: 2px solid;
+    border-color: #ff0000;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.AuthLoginDialog > .content > .dialog-close-icon{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 2;
+}
+.AuthLoginDialog > .content > .dialog-close-icon > .ant-image{}
+.AuthLoginDialog > .content > .dialog-close-icon > .ant-image > .ant-image-img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.AuthLoginDialog > .content > .dialog-bgimg{
+}
+.AuthLoginDialog > .content > .dialog-bgimg > .ant-image{
+}
+.AuthLoginDialog > .content > .dialog-bgimg > .ant-image > .ant-image-img{
+    width: auto;
+    height: 100px;
+}
+/* .AuthLoginDialog > .content > .ant-image{
+} */
+.AuthLoginDialog > .content > .login-tips{
+    font-family: PingFang SC;
+    font-size: 12px;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 20px;
+}
+.AuthLoginDialog > .content > .address{
+    font-family: PingFang SC;
+    font-size: 6px;
+    color: #FFFFFF;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
