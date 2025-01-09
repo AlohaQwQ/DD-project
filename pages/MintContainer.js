@@ -243,12 +243,13 @@ const MintContainer = () => {
                         />
                     </div>
                     <div className="inventory-num">{Number(candyMachine?.itemsRedeemed)}/{Number(candyMachine?.data.itemsAvailable)}</div>
-                    <Flex gap="small" vertical>
+                    <Flex className="custom-flex" gap="small" vertical>
                     {/* size={[1300, auto]} */}
                         <Progress 
                             percent={((Number(candyMachine?.itemsRedeemed))/Number(candyMachine?.data.itemsAvailable)) * 100} 
                             strokeColor="#ff0000" 
                             showInfo={false}
+                            className="custom-progress" 
                         />
                     </Flex>
                 </div>
@@ -273,8 +274,10 @@ const MintContainer = () => {
                     <div className="arrow-bottom"></div>
                     <div className="bgimg-left-01"></div>
                     <div className="bgimg-left-02"></div>
+                    <div className="bgimg-left-03"></div>
                     <div className="bgimg-right-01"></div>
                     <div className="bgimg-right-02"></div>
+                    <div className="bgimg-right-03"></div>
                 </div>
                 <div className="auth">
                     <div className="auth-wrap">
@@ -283,7 +286,7 @@ const MintContainer = () => {
                             <div className="item">可以进入DD社区内部群</div>
                             <div className="item small">-多频道支持：内设阿尔法/NFT/符文/铭文/土狗/合约/现货/撸毛等各种频道，满足您的多样化需求。</div>
                             <div className="item small">-全方位覆盖：无论是最新的市场动态，还是独家投资策略，涵盖</div>
-                            <div className="item">获得社区合作的空投、白名单</div>
+                            <div className="item big">获得社区合作的空投、白名单</div>
                             <div className="item small">-特别空投：社区合作的空投，如早期的杰瑞、汉堡等，都会特别安排给NFT持有者</div>
                             <div className="item small">-优先白名单：社区合作的白名单优先安排，让您在热门项目中占得先机。</div>
                         </div>

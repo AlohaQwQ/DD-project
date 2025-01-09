@@ -53,7 +53,19 @@ const HomeContainer = () => {
                     <Link href="https://t.me/a08784" className="join-community" target="_blank">加入社区</Link>
                     <div className="operations">
                         <Link href="https://x.com/DD__BlockChain" className="btn1" target="_blank"/>
-                        <Link href="https://t.me/kuaiche888" className="btn2" target="_blank"/>
+                        <Link href="https://t.me/ddshequ888" className="btn2" target="_blank"/>
+                        <Link href="https://t.me/kuaiche888" className="btn3" target="_blank"/>
+                    </div>
+                    <div className="operations-text">
+                        <div className="text1">
+                             <span>官推</span> {/* 在 Link 内部添加文字 */}
+                        </div>
+                        <div className="text2">
+                             <span>TG禁言群</span> {/* 在 Link 内部添加文字 */}
+                        </div>
+                        <div className="text3">
+                            <span>TG交流群</span> {/* 在 Link 内部添加文字 */}
+                        </div>
                     </div>
                 </div>
 			</div>

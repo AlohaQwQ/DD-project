@@ -78,7 +78,7 @@
 }
 .inventory-wrap > .inventory-logo > .ant-image{
     width: auto;
-    height: 115px;
+    height: 140px;
 }
 .inventory-wrap > .inventory-logo > .ant-image > .ant-image-img{
     width: auto;
@@ -92,7 +92,7 @@
     font-size: 12px;
     color: #ffffff;
     text-align: center;
-    line-height: 20px;
+    line-height: 10px;
 }
 .inventory-wrap > .ant-flex.ant-flex-align-stretch.ant-flex-vertical{
     width: 70%;
@@ -207,7 +207,7 @@
 }
 .MINT-wrap > .arrow-bottom{
     width: 50px;
-    margin: 40px 0 0 0;
+    margin: 20px 0 0 0;
     height: 47px;
     cursor: pointer;
     background-image: url('/resources/images/homev2/Group 16.png');
@@ -217,52 +217,61 @@
 }
 .MINT-wrap > .bgimg-left-01{
     position: absolute;
-    left: 160px;
+    left: 180px;
     bottom: 0;
-    transform: scaleX(-1);
     transform-origin: center center;
     z-index: 10;
-    width: 80px;
-    height: 80px;
+    width: 86px;
+    height: 100px;
     background-image: url('/resources/images/homev2/Group 40.png');
     background-size: 100% 100%;
     background-position: left top;
     background-repeat: no-repeat;
-    
 }
 .MINT-wrap > .bgimg-left-02{
     position: absolute;
-    left: 65px;
+    left: 107px;
     bottom: 0;
-    transform: scaleX(-1);
     transform-origin: center center;
     z-index: 10;
-    width: 100px;
-    height: 115px;
+    width: 85px;
+    height: 100px;
     background-image: url('/resources/images/homev2/Group 41.png');
     /* background-size: 1834px 2048px; */
     background-size: 100% 100%;
     background-position: left top;
     background-repeat: no-repeat;
-    
+}
+.MINT-wrap > .bgimg-left-03{
+    position: absolute;
+    left: 12px;
+    bottom: 0;
+    transform-origin: center center;
+    z-index: 10;
+    width: 105px;
+    height: 120px;
+    background-image: url('/resources/images/homev2/Group 51.png');
+    /* background-size: 1834px 2048px; */
+    background-size: 100% 100%;
+    background-position: left top;
+    background-repeat: no-repeat;
 }
 .MINT-wrap > .bgimg-right-01{
     position: absolute;
-    right: 160px;
+    right: 185px;
     bottom: 0;
     z-index: 10;
-    width: 65px;
-    height: 75px;
+    width: 80px;
+    height: 95px;
     background-image: url('/resources/images/homev2/Group 42.png');
     /* background-size: 1612px 1954px; */
     background-size: 100% 100%;
     background-position: left top;
     background-repeat: no-repeat;
-    
 }
 .MINT-wrap > .bgimg-right-02{
     position: absolute;
-    right: 70px;
+    right: 95px;
     bottom: 0;
     z-index: 10;
     width: 100px;
@@ -272,7 +281,19 @@
     background-size: 100% 100%;
     background-position: left top;
     background-repeat: no-repeat;
-    
+}
+.MINT-wrap > .bgimg-right-03{
+    position: absolute;
+    right: 12px;
+    bottom: 0;
+    z-index: 10;
+    width: 110px;
+    height: 125px;
+    background-image: url('/resources/images/homev2/Group 48.png');
+    /* background-size: 1772px 2048px; */
+    background-size: 100% 100%;
+    background-position: left top;
+    background-repeat: no-repeat;
 }
 .main > .auth{
     position: relative;
@@ -304,6 +325,16 @@
 .auth-wrap > .content > .item{
     width: 100%;
     height: 40px;
+    display: flex;
+    font-family: PingFang SC;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: left;
+}
+.auth-wrap > .content > .item.big{
+    width: 100%;
+    height: 40px;
+    margin: 10px 0 0 0;
     display: flex;
     font-family: PingFang SC;
     font-size: 16px;
@@ -424,6 +455,16 @@
     justify-content: center;
     align-items: center;
     display: none;
+}
+.MintContainer .custom-flex  {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    width: 100%; /* 确保宽度足够 */
+}
+.MintContainer .custom-progress {
+    width: 400px; /* 设置所需的宽度 */
+    /* 你可以根据需要添加其他样式 */
 }
 .AuthLoginDialog > .content{
     position: relative;
