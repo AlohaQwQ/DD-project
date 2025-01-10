@@ -312,12 +312,7 @@ const MintContainer = () => {
                 <div className="footer">
                     <div className="footer-logo"></div>
                     <div className="footer-info">
-                        <a href="https://x.com/DD__BlockChain" target="_blank" rel="noopener noreferrer">
-                            <Image 
-                                src='/resources/images/homev2/Group 36.png' 
-                                preview={false} 
-                            />
-                        </a>
+                        <a href="https://x.com/DD__BlockChain" className="img" target="_blank" rel="noopener noreferrer"/> 
                         <Link href="https://x.com/DD__BlockChain" className="email" target="_blank">@DD__BlockChain</Link>
                     </div>
                 </div>

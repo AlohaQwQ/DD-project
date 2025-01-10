@@ -434,8 +434,17 @@
     width: auto;
     height: 10px;
 }
+.footer > .footer-info > .img{
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    background-image: url('/resources/images/homev2/Group 36.png');
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
 .footer > .footer-info > .email{
-    padding-left: 6px;
+    padding-left: 2px;
     font-family: PingFang SC;
     font-size: 8px;
     color: #ffffff;

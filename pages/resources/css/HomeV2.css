@@ -298,7 +298,7 @@
     justify-content: center;
     align-items: center;    
 }
-.footer > .operations{
+.footer > .operations {
     width: 50vw;
     height: 50px;
     display: flex;
@@ -313,20 +313,25 @@
     align-items: center; /* 垂直居中 */
     gap: 20px; /* 设置间距，可以根据需要调整 */
 }
-.operations > .btn1{
-    width: 20px;
-    margin: 0 30px 0 0;
-    height: 22px;
+.operations > div {
+    display: flex; /* 使用 flexbox */
+    flex-direction: column; /* 垂直排列图标和文字 */
+    align-items: center; /* 水平居中 */
+    justify-content: center; /* 垂直居中 */
+    margin: 0 10px; /* 添加左右间距 */
+}
+.footer .operations-link > .btn1{
+    width: 17px;
+    height: 19px;
     cursor: pointer;
     background-image: url('/resources/images/homev2/Group 36.png');
     background-size: 100% 100%;
     background-position: center center;
     background-repeat: no-repeat;
 }
-.operations > .btn2{
-    width: 20px;
-    height: 22px;
-    margin: 0 30px 0 0;
+.footer .operations-link > .btn2{
+    width: 18px;
+    height: 20px;
     cursor: pointer;
     background-image: url('/resources/images/homev2/Group 37.png');
     background-size: 100% 100%;
@@ -334,29 +339,31 @@
     background-repeat: no-repeat;
 }
 
-.operations > .btn3{
-    width: 20px;
-    height: 22px;
+.footer .operations-link > .btn3{
+    width: 18px;
+    height: 20px;
     cursor: pointer;
     background-image: url('/resources/images/homev2/Group 37.png');
     background-size: 100% 100%;
     background-position: center center;
     background-repeat: no-repeat;
 }
-.footer .operations-text > .text1{
-    margin: 0 10px 0 10px;
+.operations .operations-link > .text1{
     font-family: PingFang SC;
     font-weight: bold;
     font-size: 7px;
+    margin-top: 5px; 
 }
-.footer .operations-text > .text2{
+.operations .operations-link > .text2{
     font-family: PingFang SC;
     font-weight: bold;
     font-size: 7px;
+    margin-top: 5px; 
 }
 
-.footer .operations-text > .text3{
+.operations .operations-link > .text3{
     font-family: PingFang SC;
     font-weight: bold;
     font-size: 7px;
+    margin-top: 5px; 
 }
