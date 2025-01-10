@@ -555,8 +555,8 @@ export function ButtonList({
 
     let buttonElement: GuardButtonList = {
       label: guard ? guard.label : "default",
-      allowed: true,
-      // allowed: guard.allowed,
+      // allowed: true,
+      allowed: guard.allowed,
       // header: text ? text.header : "header missing in settings.tsx",
       // mintText: text ? text.mintText : "mintText missing in settings.tsx",
       header: text ? text.header : "",
