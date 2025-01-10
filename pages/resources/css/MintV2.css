@@ -170,6 +170,21 @@
     overflow: hidden;
     display: flex;
 }
+.MINT-wrap > .MINT-btn > div > div > div > .chakra-numberinput{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 10px;
+    display: flex;
+    align-items: center;
+    display: none;
+}
+.MINT-wrap > .MINT-btn > div > div > div > .chakra-numberinput > input{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 10px;
+}
 .MINT-wrap > .MINT-btn > div > div > div > button.mint-button{
     width: 100%;
     padding: 0;

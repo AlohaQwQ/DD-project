@@ -555,8 +555,8 @@ export function ButtonList({
 
     let buttonElement: GuardButtonList = {
       label: guard ? guard.label : "default",
-      // allowed: false,
-      allowed: guard.allowed,
+      allowed: true,
+      // allowed: guard.allowed,
       // header: text ? text.header : "header missing in settings.tsx",
       // mintText: text ? text.mintText : "mintText missing in settings.tsx",
       header: text ? text.header : "",
@@ -674,7 +674,7 @@ export function ButtonList({
             }
           >
             {/* <FormattedMessage id={'mint'} /> */}
-            <FormattedMessage id={buttonGuard.allowed ? (buttonGuard.allowed ? 'minted' : 'notMint') : 'mint'} />
+            <FormattedMessage id={buttonGuard.allowed ? (buttonGuard.allowed ? 'notMint' : 'minted') : 'mint'} />
             {/* {buttonGuard.buttonLabel} */}
           </Button>
           {/* </Tooltip> */}
