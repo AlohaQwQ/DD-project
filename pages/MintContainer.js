@@ -183,8 +183,8 @@ const MintContainer = () => {
                 let allowed = false;
                 for (const guard of guardReturn) {
                     if (guard.allowed) {
-                    allowed = true;
-                    break;
+                        allowed = true;
+                        break;
                     }
                 }
                 setIsAllowed(allowed);
@@ -257,14 +257,14 @@ const MintContainer = () => {
                     <div className="MINT-btn">
                         {/* <div className="MINT-NF">MINT</div> */}
                             <ButtonList
-                                guardList={guards}
+                                umi={umi}
                                 candyMachine={candyMachine}
                                 candyGuard={candyGuard}
-                                umi={umi}
                                 ownedTokens={ownedTokens}
-                                setGuardList={setGuards}
                                 mintsCreated={mintsCreated}
                                 setMintsCreated={setMintsCreated}
+                                guardList={guards}
+                                setGuardList={setGuards}
                                 onOpen={() => setShowNftOpen(true)}
                                 setCheckEligibility={setCheckEligibility}
                                 setMintingStatus={setMintingStatus} // 传递更新函数

@@ -555,6 +555,7 @@ export function ButtonList({
 
     let buttonElement: GuardButtonList = {
       label: guard ? guard.label : "default",
+      // allowed: false,
       allowed: guard.allowed,
       // header: text ? text.header : "header missing in settings.tsx",
       // mintText: text ? text.mintText : "mintText missing in settings.tsx",
@@ -626,7 +627,7 @@ export function ButtonList({
               min={1}
               max={buttonGuard.maxAmount < 1 ? 1 : buttonGuard.maxAmount}
               size="sm"
-              // isDisabled={!buttonGuard.allowed}
+              isDisabled={buttonGuard.allowed}
               onChange={(valueAsString, valueAsNumber) =>
                 handleNumberInputChange(buttonGuard.label, valueAsNumber)
               }
@@ -661,8 +662,8 @@ export function ButtonList({
             key={buttonGuard.label}
             // size="sm"
             backgroundColor="teal.100"
-            // isDisabled={!buttonGuard.allowed}
-            className={'mint-button'}
+            isDisabled={buttonGuard.allowed}
+            className={buttonGuard.allowed ? 'mint-button is-disabled' : 'mint-button'}
             isLoading={
               guardList.find((elem) => elem.label === buttonGuard.label)
                 ?.minting
@@ -672,8 +673,8 @@ export function ButtonList({
                 ?.loadingText
             }
           >
-            <FormattedMessage id={'mint'} />
-            {/* <FormattedMessage id={!buttonGuard.allowed ? 'notMint' : buttonGuard.allowed ? 'mint' : 'minted'} /> */}
+            {/* <FormattedMessage id={'mint'} /> */}
+            <FormattedMessage id={buttonGuard.allowed ? (buttonGuard.allowed ? 'minted' : 'notMint') : 'mint'} />
             {/* {buttonGuard.buttonLabel} */}
           </Button>
           {/* </Tooltip> */}

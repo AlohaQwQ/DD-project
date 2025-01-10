@@ -1,11 +1,13 @@
 
 # 忽略本地开发配置文件
-node_modules/
-*.log
-.vscode/
+.lh
 .next/
+node_modules/
+.vscode/
 dist/
 docs/
-.env
-.lh
+.env.example
 .env.local
+.eslintrc.json
+.prettierrc
+*.log
