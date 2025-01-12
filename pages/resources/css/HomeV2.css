@@ -21,6 +21,9 @@
     align-items: center;
     cursor: pointer;
 }
+.HomeContainer > .wallet-connect.is-disabled{
+    pointer-events: none;
+}
 .HomeContainer > .wallet-connect > .ant-image{
     width: 16px;
     height: 16px;
@@ -62,6 +65,9 @@
     background-size: 100% 100%;
     background-position: left center;
     background-repeat: no-repeat;
+}
+.logo-wrap > .mint-btn.is-disabled{
+    pointer-events: none;
 }
 .logo-wrap > .arrow-bottom{
     position: absolute;

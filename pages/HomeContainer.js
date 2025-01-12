@@ -4,6 +4,7 @@ import Link from 'next/link'; // 如果你使用的是 Next.js
 import { useWallet } from "@solana/wallet-adapter-react";
 import { useWalletModal } from '@solana/wallet-adapter-react-ui';
 import CarouselComp from './CarouselComp';
+let setStatusTimer = null
 const HomeContainer = () => {
     const [visible, setVisible] = useState(false);
     const { connected, disconnect, connect, publicKey  } = useWallet(); // 获取连接状态和方法
@@ -29,6 +30,42 @@ const HomeContainer = () => {
             setModalVisible(true); // 如果未连接，则连接钱包
         }
     };
+    
+    // 新增定时器 设置钱包和按钮状态
+    const setWalletStatus = () => {
+        if(setStatusTimer){
+            clearInterval(setStatusTimer)
+            setStatusTimer = null
+        }
+        setStatusTimer = setInterval(() => {
+            let nowTime = new Date().getTime()
+            let curTime = new Date('2025-01-12 20:00:00').getTime()
+            console.log('当前时间',  new Date(nowTime))
+            console.log('激活时间',  new Date(curTime))
+            // 钱包状态
+            let walletDom = document.getElementsByClassName('wallet-connect')[0]
+            if(walletDom){
+                if(nowTime >= curTime){
+                    walletDom.className = 'wallet-connect is-disabled'
+                }else{
+                    walletDom.className = 'wallet-connect'
+                }
+            }
+            // MINT按钮状态
+            let mintDom = document.getElementsByClassName('mint-btn')[0]
+            if(mintDom){
+                if(nowTime >= curTime){
+                    mintDom.className = 'mint-btn is-disabled'
+                    clearInterval(setStatusTimer)
+                    setStatusTimer = null
+                }else{
+                    mintDom.className = 'mint-btn'
+                }
+            }
+        }, 1000)
+    }
+    setWalletStatus()
+
 	return (
 		<div className="HomeContainer" style={{ 'width': '100%', backgroundColor: '#1e1e1e', 'margin': 0, 'padding': 0 }}>
             <div className="wallet-connect" onClick={onWalletClick}>
