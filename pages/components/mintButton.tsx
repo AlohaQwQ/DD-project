@@ -663,6 +663,7 @@ export function ButtonList({
             // size="sm"
             backgroundColor="teal.100"
             isDisabled={buttonGuard.allowed}
+            // className={'mint-button'}
             className={buttonGuard.allowed ? 'mint-button is-disabled' : 'mint-button'}
             isLoading={
               guardList.find((elem) => elem.label === buttonGuard.label)
@@ -674,8 +675,9 @@ export function ButtonList({
             }
           >
             {/* <FormattedMessage id={'mint'} /> */}
-            <FormattedMessage id={buttonGuard.allowed ? (buttonGuard.allowed ? 'notMint' : 'minted') : 'mint'} />
-            {/* {buttonGuard.buttonLabel} */}
+             {/* {buttonGuard.buttonLabel}  */}
+             <FormattedMessage id={buttonGuard.allowed ? (buttonGuard.allowed ? 'notMint' : 'minted') : 'mint'} />
+             {/* {buttonGuard.buttonLabel} */}
           </Button>
           {/* </Tooltip> */}
         </VStack>

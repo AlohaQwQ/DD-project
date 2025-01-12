@@ -242,11 +242,17 @@ const MintContainer = () => {
                             preview={false} 
                         />
                     </div>
-                    <div className="inventory-num">{Number(candyMachine?.itemsRedeemed)}/{Number(candyMachine?.data.itemsAvailable)}</div>
+                    {/* <div className="inventory-num">{Number(candyMachine?.itemsRedeemed)}/{Number(candyMachine?.data.itemsAvailable)}</div> */}
+                    <div className="inventory-num">{((Number(candyMachine?.itemsRedeemed) <= 901) 
+                                ? 400 
+                                : (Number(candyMachine?.itemsRedeemed) - 901) * 6 + 400)}/{Number(1000)}</div>
                     <Flex className="custom-flex" gap="small" vertical>
                     {/* size={[1300, auto]} */}
+                    {/* percent={((Number(candyMachine?.itemsRedeemed))/Number(candyMachine?.data.itemsAvailable)) * 100}  */}
                         <Progress 
-                            percent={((Number(candyMachine?.itemsRedeemed))/Number(candyMachine?.data.itemsAvailable)) * 100} 
+                            percent={(((Number(candyMachine?.itemsRedeemed) <= 901) 
+                                ? 400 
+                                : (Number(candyMachine?.itemsRedeemed) - 901) * 6 + 400)/Number(1000)) * 100} 
                             strokeColor="#ff0000" 
                             showInfo={false}
                             className="custom-progress" 
