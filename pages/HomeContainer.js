@@ -45,7 +45,7 @@ const HomeContainer = () => {
             // 钱包状态
             let walletDom = document.getElementsByClassName('wallet-connect')[0]
             if(walletDom){
-                if(nowTime >= curTime){
+                if(nowTime < curTime){
                     walletDom.className = 'wallet-connect is-disabled'
                 }else{
                     walletDom.className = 'wallet-connect'
@@ -54,7 +54,7 @@ const HomeContainer = () => {
             // MINT按钮状态
             let mintDom = document.getElementsByClassName('mint-btn')[0]
             if(mintDom){
-                if(nowTime >= curTime){
+                if(nowTime < curTime){
                     mintDom.className = 'mint-btn is-disabled'
                     clearInterval(setStatusTimer)
                     setStatusTimer = null

@@ -23,6 +23,7 @@
 }
 .HomeContainer > .wallet-connect.is-disabled{
     pointer-events: none;
+    display: none;
 }
 .HomeContainer > .wallet-connect > .ant-image{
     width: 16px;
@@ -68,6 +69,7 @@
 }
 .logo-wrap > .mint-btn.is-disabled{
     pointer-events: none;
+    display: none;
 }
 .logo-wrap > .arrow-bottom{
     position: absolute;
